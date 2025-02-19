@@ -17,7 +17,7 @@ origins = [
     "https://localhost:3000",
     "http://192.168.10.102:3000",
     "https://192.168.10.102:3000",
-    "https://tech0-gen8-step4-pos-app-63.azurewebsites.net"
+    "https://tech0-gen8-step4-pos-app-64.azurewebsites.net"
     # 必要に応じて他のドメインも追加
 ]
 
@@ -117,7 +117,7 @@ def add_transaction_detail(
 
     # DTL_ID が重複しないか一応チェック
     exist_detail = db.query(models.TransactionDetailsMatsuda)\
-                     .filter_by(TRD_ID=trd_id, DTL_ID=detail_data.DTL_ID).first()
+                    .filter_by(TRD_ID=trd_id, DTL_ID=detail_data.DTL_ID).first()
     if exist_detail:
         raise HTTPException(status_code=400, detail="DTL_ID already exists in this transaction.")
 
